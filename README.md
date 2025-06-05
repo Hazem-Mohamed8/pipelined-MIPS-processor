@@ -1,16 +1,19 @@
 # VHDL Pipeline Processor
 
-## Team Number: 1 
+## Team Number: 1
+
 **Course**: Computer Organization  
 **Instructor**: Dr. Hatem Zakria
 
-**Team Members**:  
-- Remon Ehab  
-- Adham Ashraf 
+**Team Members**:
+
+- Hazem Mohammed
+- Adham Ashraf
 - Ebrahim Amin
 - Ibrahim Saeed
-- Hazem Mohammed
+- Remon Ehab
 - Basel Ahmed
+
 ## Overview
 
 This project is a VHDL implementation of a pipeline processor, designed as part of a Computer Organization course under the guidance of Dr. Hatem Zakri. The processor utilizes a pipelined architecture, allowing for efficient instruction execution and increased throughput. This project demonstrates the fundamental concepts of pipelining and parallelism in digital systems, which are crucial for modern computer architectures.
@@ -80,6 +83,7 @@ This project is a VHDL implementation of a pipeline processor, designed as part 
 ## How to Use
 
 1. Clone the repository to your local machine.
+
    ```bash
    git clone https://github.com/Remonn21/pipeline_computerOrganisation.git
    cd pipeline-processor
@@ -91,7 +95,6 @@ This project is a VHDL implementation of a pipeline processor, designed as part 
 
 4. Run the simulation to test the functionality of the processor.
 
-
 ## Example Usage
 
 Once the design is compiled and the simulation is running, the processor will execute a series of instructions in the pipeline. For example, it will fetch an instruction, decode it, execute it, access memory if necessary, and write the result back to the register file.
@@ -100,34 +103,27 @@ The testbench includes scenarios such as arithmetic operations, load/store opera
 
 Here's the instructions in the instruction memory
 
-| **Hex Code**  | **Address** | **Instruction**                                          | **Description**                                             |
-|---------------|-------------|----------------------------------------------------------|-------------------------------------------------------------|
-| `x"8CE20005"` | 0x0000 0014 | `LW REG(2), 5(R7)`                                       | Load word from memory address 5 + contents of R7 into R2.   |
-| `x"01024824"` | 0x0000 0000 | `AND REG(9), REG(8), REG(2)`                             | AND operation between REG8 and REG7, result stored in REG9. |
-| `x"12110003"` | 0x0000 0014 | `BEQ REG(16), REG(17), $L1`                              | Branch to label `$L1` if REG16 equals REG17.                 |
-| `x"01285024"` | 0x0000 0018 | `AND REG(10), REG(9), REG(8)`                             | AND operation between REG9 and REG8, result stored in REG10. |
-| `x"01896825"` | 0x0000 0004 | `OR REG(13), REG(12), REG(9)`                             | OR operation between REG12 and REG9, result stored in REG13. |
-| `x"01285024"` | 0x0000 0018 | `AND REG(10), REG(9), REG(8)`                             | AND operation between REG9 and REG8, result stored in REG10. |
-| `x"01285020"` | 0x0000 0008 | `ADD REG(10), REG(9), REG(8)`                             | ADD operation between REG9 and REG8, result stored in REG10. |
-| `x"0800000B"` | 0x0000 002C | `JUMP to 0x00000000`                                     | Jump to address 0x00400000.                                  |
-| `x"01285022"` | 0x0000 000C | `SUB REG(13), REG(9), REG(8)`                             | SUB operation between REG9 and REG8, result stored in REG13. |
-| `x"0149402A"` | 0x0000 0010 | `SLT REG(8), REG(10), REG(9)`                             | Set REG8 to 1 if REG10 is less than REG9, else set to 0.      |
-| `x"01285024"` | 0x0000 0018 | `AND REG(10), REG(9), REG(8)`                             | AND operation between REG9 and REG8, result stored in REG10. |
-| `x"018B6825"` | 0x0000 001C | `OR REG(13), REG(12), REG(11)`                            | OR operation between REG12 and REG11, result stored in REG13. |
-
-
-
-
+| **Hex Code**  | **Address** | **Instruction**                | **Description**                                               |
+| ------------- | ----------- | ------------------------------ | ------------------------------------------------------------- |
+| `x"8CE20005"` | 0x0000 0014 | `LW REG(2), 5(R7)`             | Load word from memory address 5 + contents of R7 into R2.     |
+| `x"01024824"` | 0x0000 0000 | `AND REG(9), REG(8), REG(2)`   | AND operation between REG8 and REG7, result stored in REG9.   |
+| `x"12110003"` | 0x0000 0014 | `BEQ REG(16), REG(17), $L1`    | Branch to label `$L1` if REG16 equals REG17.                  |
+| `x"01285024"` | 0x0000 0018 | `AND REG(10), REG(9), REG(8)`  | AND operation between REG9 and REG8, result stored in REG10.  |
+| `x"01896825"` | 0x0000 0004 | `OR REG(13), REG(12), REG(9)`  | OR operation between REG12 and REG9, result stored in REG13.  |
+| `x"01285024"` | 0x0000 0018 | `AND REG(10), REG(9), REG(8)`  | AND operation between REG9 and REG8, result stored in REG10.  |
+| `x"01285020"` | 0x0000 0008 | `ADD REG(10), REG(9), REG(8)`  | ADD operation between REG9 and REG8, result stored in REG10.  |
+| `x"0800000B"` | 0x0000 002C | `JUMP to 0x00000000`           | Jump to address 0x00400000.                                   |
+| `x"01285022"` | 0x0000 000C | `SUB REG(13), REG(9), REG(8)`  | SUB operation between REG9 and REG8, result stored in REG13.  |
+| `x"0149402A"` | 0x0000 0010 | `SLT REG(8), REG(10), REG(9)`  | Set REG8 to 1 if REG10 is less than REG9, else set to 0.      |
+| `x"01285024"` | 0x0000 0018 | `AND REG(10), REG(9), REG(8)`  | AND operation between REG9 and REG8, result stored in REG10.  |
+| `x"018B6825"` | 0x0000 001C | `OR REG(13), REG(12), REG(11)` | OR operation between REG12 and REG11, result stored in REG13. |
 
 ## Contributing
 
 If you would like to contribute to this project, feel free to fork the repository, make your changes, and submit a pull request. Make sure to follow the VHDL coding standards and include appropriate test cases.
-
-
 
 ## Acknowledgments
 
 - Dr. Hatem Zakria for his guidance and support throughout the project.
 - The concepts of pipelining and computer organization studied in the course.
 - Open-source communities and online resources for VHDL tutorials and examples.
-
